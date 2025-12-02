@@ -70,19 +70,86 @@ class _SplashPageState extends State<SplashPage>
                 return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      '$percentage%',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+
+                          BoxShadow(
+                            color: Color.fromRGBO(0xFFEC4899 >> 16 & 0xFF,
+                                0xFFEC4899 >> 8 & 0xFF,
+                                0xFFEC4899 & 0xFF,
+                                progress * 1.0),
+                            blurRadius: 60 * progress,
+                            spreadRadius: 15 * progress,
+                          ),
+
+                          BoxShadow(
+                            color: Color.fromRGBO(0xFFFF6BB3 >> 16 & 0xFF,
+                                0xFFFF6BB3 >> 8 & 0xFF,
+                                0xFFFF6BB3 & 0xFF,
+                                progress * 0.9),
+                            blurRadius: 40 * progress,
+                            spreadRadius: 8 * progress,
+                          ),
+
+                          BoxShadow(
+                            color: Color.fromRGBO(255,
+                                255,
+                                255,
+                                progress * 0.7),
+                            blurRadius: 20 * progress,
+                            spreadRadius: 4 * progress,
+                          ),
+                        ],
+                      ),
+                      child: Text(
+                        '$percentage%',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 12),
-                    SplashProgressBar(
-                      progress: progress,
-                      width: screenWidth * 0.55,
-                      height: 10,
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+
+                          BoxShadow(
+                            color: Color.fromRGBO(0xFFEC4899 >> 16 & 0xFF,
+                                0xFFEC4899 >> 8 & 0xFF,
+                                0xFFEC4899 & 0xFF,
+                                progress * 1.0),
+                            blurRadius: 50 * progress,
+                            spreadRadius: 12 * progress,
+                          ),
+
+                          BoxShadow(
+                            color: Color.fromRGBO(0xFFFF6BB3 >> 16 & 0xFF,
+                                0xFFFF6BB3 >> 8 & 0xFF,
+                                0xFFFF6BB3 & 0xFF,
+                                progress * 0.8),
+                            blurRadius: 30 * progress,
+                            spreadRadius: 6 * progress,
+                          ),
+
+                          BoxShadow(
+                            color: Color.fromRGBO(255,
+                                255,
+                                255,
+                                progress * 0.5),
+                            blurRadius: 15 * progress,
+                            spreadRadius: 3 * progress,
+                          ),
+                        ],
+                      ),
+                      child: SplashProgressBar(
+                        progress: progress,
+                        width: screenWidth * 0.55,
+                        height: 10,
+                      ),
                     ),
                   ],
                 );
